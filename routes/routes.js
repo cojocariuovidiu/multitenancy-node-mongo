@@ -5,4 +5,5 @@ module.exports = (app) => {
     app.post('/register', BaseController.register);
     app.get('/fetchTenant', BaseController.findTenant);
     app.post('/registerUserToTenant', BaseController.registerUserToTenant);
+    app.get('/findUserInTenant', BaseController.findUserInTenant);
 };
