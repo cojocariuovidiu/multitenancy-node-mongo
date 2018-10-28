@@ -45,4 +45,14 @@ module.exports = {
             return res.status(200).json({ data: doc });
         });
     },
+    registerUserToTenant(req, res) {
+        Tenant.findOne({ name: req.body.tenantName }, (err, tenant) => {
+            User(tenant.connection).create(req.body.user, (error, user) => {
+                if (error) {
+                    return res.status(500).json({ Error: "Unable to insert user in the tenant database." });
+                }
+                return res.status(200).json({ message: "New user inserted into the tenant database" });
+            });
+        });
+    },
 };
