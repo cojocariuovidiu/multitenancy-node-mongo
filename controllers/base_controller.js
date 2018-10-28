@@ -55,4 +55,24 @@ module.exports = {
             });
         });
     },
+
+    findUserInTenant(req, res) {
+        let tenant = req.query.tenant;
+        let user = req.query.user;
+
+        Tenant.findOne({ name: tenant }, (err, t) => {
+            if (err) return res.status(500).json({ Error: "Unable to find the tenant." });
+
+            User(t.connection).findOne({ name: req.query.user }, (error, u) => {
+                if (error) {
+                    return res.status(500).json({ Error: "Unable to find user in the tenant database." });
+                }
+                if (!u || !u.name) {
+                    return res.status(404).json({ data: "User not Found." });
+                } else {
+                    return res.status(200).json({ data: u });
+                }
+            });
+        });
+    }
 };
