@@ -37,4 +37,12 @@ module.exports = {
             });
         });
     },
+    findTenant(req, res) {
+        Tenant.findOne({ name: req.query.name }, (err, doc) => {
+            if (err) {
+                return res.status(500).json({ Error: err });
+            }
+            return res.status(200).json({ data: doc });
+        });
+    },
 };
