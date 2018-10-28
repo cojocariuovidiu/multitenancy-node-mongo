@@ -1,0 +1,22 @@
+{
+  "name": "multi-tenancy",
+  "version": "1.0.0",
+  "description": "multi tenant architecture demo",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "multi-tenant"
+  ],
+  "author": "Aman Mahalgavan",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "mongoose": "^5.3.7",
+    "nodemon": "^1.18.5",
+    "randomstring": "^1.1.5"
+  }
+}
